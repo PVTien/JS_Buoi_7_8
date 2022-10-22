@@ -61,15 +61,17 @@ function ex5() {
   return -1;
 }
 
-// function ex6() {
-//   arr[index1] = +document.getElementById("index1").value;
-//   arr[index2] = +document.getElementById("index2").value;
-
-//   var temp = arr[index1];
-//   arr[index1] = arr[index2];
-//   arr[index2] = temp;
-//   document.getElementById("ex6__text").innerHTML = arr;
-// }
+function swap(index1, index2) {
+  var temp = arr[index1];
+  arr[index1] = arr[index2];
+  arr[index2] = temp;
+}
+function ex6() {
+  var i1 = +document.getElementById("index1").value;
+  var i2 = +document.getElementById("index2").value;
+  swap(i1, i2);
+  document.getElementById("ex6__text").innerHTML = arr;
+}
 
 function ex7() {
   for (var k = arr.length - 1; k >= 0; k--) {
