@@ -1,6 +1,11 @@
-var arr = [-3, 9, 2, 5, 4, -6, 8, 7];
+var arr = [];
 
-console.log("Câu 1:");
+function addArray() {
+  var n = +document.getElementById("array").value;
+  arr.push(n);
+  document.getElementById("arr__text").innerHTML = arr.join();
+}
+
 function ex1() {
   var sum = 0;
   for (var i = 0; i < arr.length; i++) {
@@ -8,11 +13,9 @@ function ex1() {
       sum += arr[i];
     }
   }
-  console.log("Tổng số dương trong mảng:", sum);
+  document.getElementById("ex1__text").innerHTML = sum;
 }
-ex1();
 
-console.log("Câu 2:");
 function ex2() {
   var count = 0;
   for (var i = 0; i < arr.length; i++) {
@@ -20,11 +23,9 @@ function ex2() {
       count++;
     }
   }
-  console.log("Mảng có", count, "số dương");
+  document.getElementById("ex2__text").innerHTML = count;
 }
-ex2();
 
-console.log("Câu 3:");
 function ex3() {
   var min = arr[0];
   for (var i = 0; i < arr.length; i++) {
@@ -32,11 +33,9 @@ function ex3() {
       min = arr[i];
     }
   }
-  console.log("Số nhỏ nhất trong mảng:", min);
+  document.getElementById("ex3__text").innerHTML = min;
 }
-ex3();
 
-console.log("Câu 4:");
 function ex4() {
   for (var i = 0; i < arr.length; i++) {
     if (arr[i] >= 0) {
@@ -49,32 +48,29 @@ function ex4() {
       min = arr[i];
     }
   }
-  console.log("Số dương nhỏ nhất trong mảng:", min);
+  document.getElementById("ex4__text").innerHTML = min;
 }
-ex4();
 
-console.log("Câu 5:");
 function ex5() {
   for (var i = arr.length - 1; i >= 0; i--) {
     if (arr[i] % 2 === 0) {
-      console.log("Số chẵn cuối cùng trong mảng:", arr[i]);
+      document.getElementById("ex5__text").innerHTML = arr[i];
       return;
     }
   }
   return -1;
 }
-ex5();
 
-console.log("Câu 6:");
-function ex6() {
-  var temp = arr[3];
-  arr[3] = arr[5];
-  arr[5] = temp;
-  console.log(arr);
-}
-ex6();
+// function ex6() {
+//   arr[index1] = +document.getElementById("index1").value;
+//   arr[index2] = +document.getElementById("index2").value;
 
-console.log("Câu 7:");
+//   var temp = arr[index1];
+//   arr[index1] = arr[index2];
+//   arr[index2] = temp;
+//   document.getElementById("ex6__text").innerHTML = arr;
+// }
+
 function ex7() {
   for (var k = arr.length - 1; k >= 0; k--) {
     var isSwapped = false;
@@ -87,17 +83,42 @@ function ex7() {
       }
     }
     if (isSwapped === false) {
-      console.log(arr);
+      document.getElementById("ex7__text").innerHTML = arr;
       return;
     }
   }
-  console.log(arr);
+  document.getElementById("ex7__text").innerHTML = arr;
 }
-ex7();
 
-console.log("Câu 9:");
+function checkPrime(n) {
+  var isPrime = 1;
+  if (n < 2) {
+    return (isPrime = 0);
+  }
+  for (var i = 2; i < n; i++) {
+    if (n % i === 0) {
+      return (isPrime = 0);
+    }
+  }
+  return isPrime;
+}
+function ex8() {
+  for (var i = 0; i < arr.length; i++) {
+    if (checkPrime(arr[i]) === 1) {
+      document.getElementById("ex8__text").innerHTML = arr[i];
+      break;
+    }
+  }
+  return -1;
+}
+
+var array = [];
+function addArrayReal() {
+  var n = +document.getElementById("arrayReal").value;
+  array.push(n);
+  document.getElementById("arr__real").innerHTML = array.join();
+}
 function ex9() {
-  var array = [3, 4, 5.2, 6, 8.7, 9.5, 1];
   var count = 0;
 
   for (var i = 0; i < array.length; i++) {
@@ -105,11 +126,9 @@ function ex9() {
       count++;
     }
   }
-  console.log("Mảng có", count, "số nguyên");
+  document.getElementById("ex9__text").innerHTML = count;
 }
-ex9();
 
-console.log("Câu 10:");
 function ex10() {
   var countPositive = 0;
   var countNegative = 0;
@@ -120,12 +139,11 @@ function ex10() {
       countPositive++;
     }
   }
-  if (countNegative > countPositive) {
-    console.log("Số âm > Số dương");
-  } else if (countNegative < countPositive) {
-    console.log("Số âm < Số dương");
+  if (countPositive > countNegative) {
+    document.getElementById("ex10__text").innerHTML = "Số dương > Số âm";
+  } else if (countPositive < countNegative) {
+    document.getElementById("ex10__text").innerHTML = "Số dương < Số âm";
   } else {
-    console.log("Số âm = Số dương");
+    document.getElementById("ex10__text").innerHTML = "Số dương = Số âm";
   }
 }
-ex10();
